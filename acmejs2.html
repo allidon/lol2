@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>ACME Corp - Home</title>
+      <link rel="stylesheet" href="stylesheet.css" media="screen" >
+
+   </head>
+   <body>
+  <script type="text/javascript">
+
+     // Create the header
+var body = document.querySelector("body");
+var header = document.createElement("header");
+body.appendChild(header);
+
+  // Place the Logo
+  var logo = document.createElement("img");
+  logo.setAttribute("src","acme-corp.jpg");
+  header.appendChild(logo);
+
+// Create the nav
+var nav = document.createElement("nav");
+header.appendChild(nav);
+
+// UL
+var ul = document.createElement("ul");
+nav.appendChild(ul);
+
+// List Item (Products)
+var li = document.createElement("li");
+ul.appendChild(li);
+
+// Products link
+var a = document.createElement("a");
+a.textContent = "Products";
+li.appendChild(a);
+
+// List Item 2 (Sign Up)
+var signup = document.createElement("li");
+ul.appendChild(signup);
+
+// Create the sign up button
+var button = document.createElement("button");
+button.textContent = "Sign up";
+ul.appendChild(button);
+
+// Create the Main Table
+var main = document.createElement("main");
+body.appendChild(main);
+
+// Create the Heading
+var acme = document.createElement("h1");
+acme.textContent = "Welcome to Acme Corp!";
+main.appendChild(acme);
+
+//Section
+var section = document.createElement("section")
+section.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidiunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis autre irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fagiat nulla pariatur.";
+main.appendChild(section);
+
+</script>
+
+
+
+
+   </body>
+</html>

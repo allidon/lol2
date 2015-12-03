@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ACME Corp</title>
+    <style>
+    body {
+      margin: 0;
+    }
+    <link rel="stylesheet" href="stylesheet.css">
+    /* ...you've got other styles here too... */
+    </style>
+  </head>
+  <body>
+    <script type = "text/javascript">
+    //Create the Elements
+    function makeElements (elemName, parent) {
+      var headerElem = document.makeElements(elemName);
+      var bodyElem = document,querySelector(parent);
+      bodyElem.appendChild(headerElem);
+    }
+    makeElements('header', 'body');
+    makeElements('img','header');
+    makeElements('nav','header');
+    
+  // Create the header
+
+var body = document.querySelector("body");
+var header = document.createElement("header");
+body.appendChild(header);
+
+// Create the nav
+var nav = document.createElement("nav");
+header.appendChild(nav);
+
+// Create the sign up button
+var button = document.createElement("button");
+button.textContent = "Sign up";
+nav.appendChild(header);
+  </body>
+</html>
