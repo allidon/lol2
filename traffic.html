@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Traffic Light</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+   <style media="screen">
+
+body {
+  font-family: Helvetica;
+  background-color: gray;
+}
+
+#controlButtons {
+padding-top: 30px;
+text-align: center;
+}
+
+.button {
+  font-family: Helvetica;
+  border-radius: 10px;
+  width: 100px;
+  padding: 0px;
+  margin-left: 600px;
+}
+
+#traffic-light {
+  height: 550px;
+  width: 200px;
+  background-color: #0d0d0d;
+  margin-left: 600px;
+  border-radius: 40px;
+  margin: 30px 0;
+  padding: 20px;
+}
+
+.bulb {
+  height: 150px;
+  width: 150px;
+  background-color: #262626;
+  border-radius: 50%;
+  transition: background 500ms;
+  margin-bottom: 30px;
+}
+
+
+</style>
+
+
+
+<div id="controlButtons">
+  <button id="stopButton" class="btn btn-danger">
+     Stop</button>
+  <button id="slowButton" class="btn btn-warning">
+     Slow</button>
+  <button id="goButton" class="btn btn-success">
+     Go</button>
+</div>
+
+<div class='col-xs-2 col-xs-offset-5'>
+<div id="traffic-light" class='center-block'>
+  <div id="stopLight" class="bulb center-block"></div>
+  <div id="slowLight" class="bulb center-block"></div>
+  <div id="goLight" class="bulb center-block"></div>
+</div>
+</div>
+
+<script>
+document.getElementById('stopButton').onclick = illuminateRed;
+document.getElementById('slowButton').onclick = illuminateYellow;
+document.getElementById('goButton').onclick = illuminateGreen;
+
+function illuminateRed() {
+  clearLights();
+  document.getElementById('stopLight').style.backgroundColor = "#ff1a1a";
+}
+
+function illuminateYellow() {
+  clearLights();
+  document.getElementById('slowLight').style.backgroundColor = "#feff1a";
+}
+
+function illuminateGreen() {
+  clearLights();
+  document.getElementById('goLight').style.backgroundColor = "#1aff1a";
+}
+
+function clearLights() {
+  document.getElementById('stopLight').style.backgroundColor = "#262626";
+  document.getElementById('slowLight').style.backgroundColor = "#262626";
+  document.getElementById('goLight').style.backgroundColor = "#262626";
+}
+</script>
+</body>
+</html>
