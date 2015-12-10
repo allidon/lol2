@@ -4,12 +4,7 @@
    <meta charset="utf-8">
    <title>Traffic Light</title>
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </head>
    <style media="screen">
@@ -25,14 +20,30 @@ text-align: center;
 }
 
 .button {
-  font-family: Helvetica;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  background-color: inherit;
+  width: 50px;
+  padding: 10px;
   border-radius: 10px;
-  width: 100px;
-  padding: 0px;
-  margin-left: 600px;
-}
+  }
 
-#traffic-light {
+  .stop {
+    background-color: #ff1a1a;
+  }
+
+  .slow {
+    background-color: #feff1a;
+  }
+
+  .go {
+    background-color: #1aff1a;
+
+  }
+
+ .traffic-light {
   height: 550px;
   width: 200px;
   background-color: #0d0d0d;
@@ -42,13 +53,14 @@ text-align: center;
   padding: 20px;
 }
 
-.bulb {
+ .bulb {
   height: 150px;
   width: 150px;
   background-color: #262626;
   border-radius: 50%;
   transition: background 500ms;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 
@@ -57,21 +69,21 @@ text-align: center;
 
 
 <div id="controlButtons">
-  <button id="stopButton" class="btn btn-danger">
+  <button id="stopButton" class="stop button">
      Stop</button>
-  <button id="slowButton" class="btn btn-warning">
+  <button id="slowButton" class="slow button">
      Slow</button>
-  <button id="goButton" class="btn btn-success">
+  <button id="goButton" class="go button">
      Go</button>
 </div>
 
-<div class='col-xs-2 col-xs-offset-5'>
-<div id="traffic-light" class='center-block'>
-  <div id="stopLight" class="bulb center-block"></div>
-  <div id="slowLight" class="bulb center-block"></div>
-  <div id="goLight" class="bulb center-block"></div>
+
+<div id="traffic-light" class="traffic-light">
+  <div id="stopLight" class="bulb"></div>
+  <div id="slowLight" class="bulb"></div>
+  <div id="goLight" class="bulb"></div>
 </div>
-</div>
+
 
 <script>
 document.getElementById('stopButton').onclick = illuminateRed;
