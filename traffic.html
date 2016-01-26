@@ -89,13 +89,14 @@ text-align: center;
 
 
 <script>
+
 document.getElementById('stopButton').onclick = illuminateRed;
 document.getElementById('slowButton').onclick = illuminateYellow;
 document.getElementById('goButton').onclick = illuminateGreen;
 
 function illuminateRed() {
   clearLights();
-  document.getElementById('stopLight').style.backgroundColor = "#ff1a1a";
+  document.getElementById('stopLight').style.background-image = "portrait1.jpg";
 }
 
 function illuminateYellow() {

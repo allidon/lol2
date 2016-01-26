@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Photos by Allison Donlevy</title>
+
+<style>
+body {
+   background-color: white;
+   font-family: "Georgia", serif;
+   color: gray;
+   margin: 0;
+}
+header {
+   background-color: white;
+   color: gray;
+   font-size: 30px;
+   height: 30px;
+   margin: 0 auto;
+}
+a {
+   color: gray;
+   font-size: 16px;
+   text-decoration: none;
+ }
+ a:hover {
+  color: black;
+}
+#wrapper {
+    width: 2200px;
+    transform: translate3d(0, 0, 0);
+    transition: transform .5s ease-in-out;
+}
+
+.content {
+    float: left;
+    width: 640px;
+    height: 427px;
+    margin: 0 auto;
+    white-space: normal;
+    background-repeat: no-repeat;
+    transition: .5s ease-in-out;
+    position: relative;
+
+
+}
+#contentContainer {
+    width: 640px;
+    height: 427px;
+    overflow: hidden;
+    margin: 0 auto;
+
+
+}
+#itemOne {
+    background-color: white;
+    background-image: url("portrait1.jpg");
+}
+#itemTwo {
+    background-color: white;
+    background-image: url("portrait2.jpg");
+}
+#itemThree {
+    background-color: white;
+    background-image: url("portrait3.jpg");
+}
+#itemFour {
+    background-color: white;
+    background-image: url("portrait4.jpg");
+}
+#navLinks {
+    text-align: center;
+    width: 550px;
+    padding-left: 500px;
+}
+    #navLinks ul {
+        margin: 0px;
+        padding: 0px;
+        display: inline-block;
+        margin-top: 2px;
+    }
+        #navLinks ul li {
+            float: left;
+            text-align: center;
+            margin: 5px;
+            list-style: none;
+            cursor: pointer;
+            background-color: #a6a6a6;
+            padding: 5px;
+            border-radius: 50%;
+
+        }
+            #navLinks ul li:hover {
+                background-color: #cccccc;
+            }
+            #navLinks ul li.active {
+                background-color: #333333;
+                color: #FFFFFF;
+                outline-width: 7px;
+            }
+                #navLinks ul li.active:hover {
+                    background-color: #484848;
+                    color: #FFFFFF;
+                }
+                footer {
+                  background-color: white;
+                  color: gray;
+                  font-size: 30px;
+                  height: 20px;
+                  margin: 0 auto;
+                  text-align: center;
+                }
+                footer p {
+                   color: gray;
+                   font-size: 20px;
+                   padding-top: 20px;
+                   text-align: center;
+                   padding-left: 20px;
+                }
+</style>
+</head>
+<header></header>
+<body>
+  <div id="contentContainer">
+ <div id="wrapper">
+    <div id="itemOne" class="content">
+
+
+    </div>
+    <div id="itemTwo" class="content">
+
+    </div>
+    <div id="itemThree" class="content">
+
+    </div>
+    <div id="itemFour" class="content">
+
+    </div>
+</div>
+</div>
+<div id="navLinks">
+    <ul>
+      <li class="itemLinks" data-pos="0px"></li>
+        <li class="itemLinks" data-pos="-640px"></li>
+        <li class="itemLinks" data-pos="-1280px"></li>
+        
+    </ul>
+</div>
+
+
+</div>
+
+<footer>
+  allison donlevy photography
+  <p>
+    <a href="portraits.html">Portraits</a> |
+    <a href="landscapes.html">Landscapes</a> |
+    <a href="personal.html"> Personal Work </a> |
+    <a href="video.html"> Video </a> |
+    <a href="about.html"> About </a>
+</footer>
+
+
+<script>
+
+var links = document.querySelectorAll(".itemLinks");
+var wrapper = document.querySelector("#wrapper");
+
+// the activeLink provides a pointer to the currently displayed item
+var activeLink = 0;
+
+// setup the event listeners
+for (var i = 0; i < links.length; i++) {
+    var link = links[i];
+    link.addEventListener('click', setClickedItem, false);
+
+    // identify the item for the activeLink
+    link.itemID = i;
+}
+
+// set first item as active
+links[activeLink].classList.add("active");
+
+function setClickedItem(e) {
+    removeActiveLinks();
+
+    var clickedLink = e.target;
+    activeLink = clickedLink.itemID;
+
+    changePosition(clickedLink);
+}
+
+function removeActiveLinks() {
+    for (var i = 0; i < links.length; i++) {
+        links[i].classList.remove("active");
+    }
+}
+
+// Handle changing the slider position as well as ensure
+// the correct link is highlighted as being active
+function changePosition(link) {
+    var position = link.getAttribute("data-pos");
+
+    var translateValue = "translate3d(" + position + ", 0px, 0)";
+    wrapper.style[transformProperty] = translateValue;
+
+    link.classList.add("active");
+}
+
+//
+// Dealing with Transforms
+//
+var transforms = ["transform",
+            "msTransform",
+            "webkitTransform",
+            "mozTransform",
+            "oTransform"];
+
+var transformProperty = getSupportedPropertyName(transforms);
+
+// vendor prefix management
+function getSupportedPropertyName(properties) {
+    for (var i = 0; i < properties.length; i++) {
+        if (typeof document.body.style[properties[i]] != "undefined") {
+            return properties[i];
+        }
+    }
+    return null;
+}
+
+
+
+</script>
+</body>
+</html>
